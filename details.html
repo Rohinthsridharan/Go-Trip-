@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Go Trip - Tour Details</title>
+</head>
+
+<body>
+    <!--===========Nav Bar=================-->
+    <section class="nav-bar">
+        <div class="logo">Go Trip</div>
+        <ul class="menu">
+            <li><a href="index.html">home</a></li>
+            <li><a href="tours.html">tours</a></li>
+            <li><a href="package.html">package</a></li>
+            <li><a href="blog.html">blog</a></li>
+            <li><a href="about.html">about us</a></li>
+            <li><a href="contact.html">contact us</a></li>
+        </ul>
+    </section>
+    <!--==============Tour Details===================-->
+    <div class="conatiner">
+        <section class="about">
+            <div class="about-img">
+                <img id="tour-image" src="" alt="Tour">
+            </div>
+            <div class="about-text">
+                <small>TOUR DETAILS</small>
+                <h2 id="tour-title"></h2>
+                <p id="tour-description"></p>
+                <p><strong>Cost:</strong> <span id="tour-cost"></span></p>
+                <p><strong>Duration:</strong> <span id="tour-duration"></span></p>
+                <p><strong>Location:</strong> <span id="tour-location"></span></p>
+                <a href="contact.html" class="details-btn">Book Now</a>
+            </div>
+        </section>
+    </div>
+    <!--===========Footer=================-->
+    <div class="footer">
+        <div class="links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li>Offers & Discounts</li>
+                <li>Get Coupon</li>
+                <li>Contact Us</li>
+                <li>About</li>
+            </ul>
+        </div>
+        <div class="links">
+            <h3>New Products</h3>
+            <ul>
+                <li>Travel Gear</li>
+                <li>Guide Books</li>
+                <li>Travel Insurance</li>
+                <li>Custom Itineraries</li>
+            </ul>
+        </div>
+        <div class="links">
+            <h3>Support</h3>
+            <ul>
+                <li>Frequently Asked Questions</li>
+                <li>Report a Payment Issue</li>
+                <li>Terms & Conditions</li>
+                <li>Privacy Policy</li>
+            </ul>
+        </div>
+    </div>
+    <script src="./scripts/script.js"></script>
+    <script>
+        const tours = {
+            vancouver: {
+                title: "The Dark Forest Adventure",
+                image: "./assets/Vancouver.jpg",
+                description: "Explore the lush forests of Vancouver with expert guides.",
+                cost: "$1870 / Per Person",
+                duration: "3 Days",
+                location: "Vancouver, Canada"
+            },
+            paris: {
+                title: "Parisian Romance Tour",
+                image: "./assets/paris.jpg",
+                description: "Experience the charm of Paris with romantic dinners and city tours.",
+                cost: "$1990 / Per Person",
+                duration: "4 Days",
+                location: "Paris, France"
+            },
+            monaco: {
+                title: "Luxury Monaco Escape",
+                image: "./assets/monaco2.jpg",
+                description: "Indulge in the luxury of Monaco with yacht tours and casino visits.",
+                cost: "$2500 / Per Person",
+                duration: "3 Days",
+                location: "Monaco, Monaco"
+            },
+            bern: {
+                title: "Swiss Alps Adventure",
+                image: "./assets/bern.jpg",
+                description: "Ski and hike in the stunning Swiss Alps.",
+                cost: "$2200 / Per Person",
+                duration: "5 Days",
+                location: "Bern, Switzerland"
+            },
+            seoul: {
+                title: "Seoul Cultural Journey",
+                image: "./assets/seoul.jpg",
+                description: "Immerse yourself in the vibrant culture of Seoul.",
+                cost: "$1750 / Per Person",
+                duration: "3 Days",
+                location: "Seoul, South Korea"
+            },
+            tokyo: {
+                title: "Tokyo Nightlife Tour",
+                image: "./assets/tokyo.jpg",
+                description: "Discover the electrifying nightlife of Tokyo.",
+                cost: "$1900 / Per Person",
+                duration: "4 Days",
+                location: "Tokyo, Japan"
+            },
+            europe: {
+                title: "European Explorer",
+                image: "./assets/europiean explorer.jpg",
+                description: "Visit multiple European cities in one epic journey.",
+                cost: "$4500 / Per Person",
+                duration: "10 Days",
+                location: "Europe"
+            },
+            asia: {
+                title: "Asian Odyssey",
+                image: "./assets/asia odyssey.jpg",
+                description: "Explore the diverse cultures of Asia.",
+                cost: "$3800 / Per Person",
+                duration: "8 Days",
+                location: "Asia"
+            }
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const tourId = urlParams.get('id');
+        const tour = tours[tourId];
+
+        if (tour) {
+            document.getElementById('tour-image').src = tour.image;
+            document.getElementById('tour-title').textContent = tour.title;
+            document.getElementById('tour-description').textContent = tour.description;
+            document.getElementById('tour-cost').textContent = tour.cost;
+            document.getElementById('tour-duration').textContent = tour.duration;
+            document.getElementById('tour-location').textContent = tour.location;
+        } else {
+            document.querySelector('.about-text').innerHTML = '<h2>Tour Not Found</h2><p>Please select a valid tour.</p>';
+        }
+    </script>
+</body>
+
+</html>
